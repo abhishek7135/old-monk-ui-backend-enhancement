@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Vite cache
+.vite/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+vite-dev.out.log
+vite-dev.err.log
+preview.out.log
+preview.err.log
+
+# Environment files
+.env
+.env.*
+*.local
+!.env.example
+!.env.local.example
+
+# Runtime/cache files
+.cache/
+tmp/
+temp/
+coverage/
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor/IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local analysis/artifacts
+analysis/
+artifacts/
+
+# Local workflow notes
+webflow.md
+webflow.txt
+webflow.docx
+
+# Unused/reference assets
+public/favicon.svg
+public/scepter-mark.svg
+public/fonts/ParfumerieScriptOldStyle.woff2
+
+# Deployment provider local folders
+.vercel/
+.netlify/
+.firebase/
+
+# Package manager cache
+.npm/
+.pnpm-store/
+.yarn/
+!.yarn/releases/
+!.yarn/plugins/
+!.yarn/sdks/
+!.yarn/versions/
