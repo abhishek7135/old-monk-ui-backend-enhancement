@@ -445,6 +445,22 @@ http://localhost:3000
 
 ## Deployment
 
+### GitHub Pages
+
+This project includes a GitHub Actions workflow at:
+
+```text
+.github/workflows/deploy.yml
+```
+
+For GitHub Pages, use these repository settings:
+
+```text
+Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+```
+
+Do not deploy the raw repository root as a static folder. Vite apps must be built first, otherwise GitHub Pages will try to load `/src/main.jsx` directly and the site will show a blank screen.
+
 ### Vercel
 
 Recommended settings:

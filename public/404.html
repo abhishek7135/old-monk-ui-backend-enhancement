@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Old Monk</title>
+    <script>
+      const [repoName = ""] = window.location.pathname.split("/").filter(Boolean);
+      const repoBase = repoName ? `/${repoName}` : "";
+      const path = window.location.pathname.slice(repoBase.length) || "/";
+      const search = window.location.search || "";
+      window.location.replace(`${repoBase}/#${path}${search}`);
+    </script>
+  </head>
+  <body></body>
+</html>
