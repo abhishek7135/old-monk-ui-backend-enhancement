@@ -1,15 +1,33 @@
 const MEDIA_PREFIX = "/media/";
 const BASE_URL = import.meta.env.BASE_URL || "/";
 
+function normalizedBasePath() {
+  if (BASE_URL && BASE_URL !== "./") {
+    const cleanBase = BASE_URL.startsWith("/") ? BASE_URL : `/${BASE_URL}`;
+    return cleanBase.endsWith("/") ? cleanBase : `${cleanBase}/`;
+  }
+
+  if (typeof window === "undefined") {
+    return "/";
+  }
+
+  const firstPathSegment = window.location.pathname.split("/").filter(Boolean)[0];
+  return firstPathSegment ? `/${firstPathSegment}/` : "/";
+}
+
 export function publicAssetSrc(src) {
   if (!src || /^https?:\/\//i.test(src) || src.startsWith("data:") || src.startsWith("#")) {
     return src;
   }
 
-  const cleanBase = BASE_URL.endsWith("/") ? BASE_URL : `${BASE_URL}/`;
   const cleanSrc = src.startsWith("/") ? src.slice(1) : src;
+  const path = `${normalizedBasePath()}${cleanSrc}`;
 
-  return `${cleanBase}${cleanSrc}`;
+  if (typeof window === "undefined") {
+    return path;
+  }
+
+  return new URL(path, window.location.origin).href;
 }
 
 export function optimizedMediaSrc(src) {
